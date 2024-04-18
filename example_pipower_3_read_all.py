@@ -21,7 +21,6 @@ def main():
         print(f"Input plugged in: {data_buffer['is_input_plugged_in']}")
         print(f"Battery plugged in: {data_buffer['is_battery_plugged_in']}")
         print(f"Charging: {data_buffer['is_charging']}")
-        print(f"Shutdown battery percentage: {data_buffer['shutdown_battery_percentage']} %")
 
         print('')
         print(f"Internal data:")
@@ -36,10 +35,10 @@ def main():
             shutdown_request_str = 'Unknown'
         print(f"Shutdown request: {data_buffer['shutdown_request']}({shutdown_request_str})")
         print(f'Board id: {spc.read_board_id()}')
-        if ('always_on' in spc.device.peripherals):
-            print(f"Always on: {spc.read_always_on()}")
-        if ('power_source_voltage' in spc.device.peripherals):
-            print(f"Power source voltage: {spc.read_power_source_voltage()} mV")
+        print(f"Always on: {spc.read_always_on()}")
+        print(f"Power source voltage: {spc.read_power_source_voltage()} mV")
+        print(f"Shutdown percentage: {spc.read_shutdown_percentage()} %")
+        print(f"Power off percentage: {spc.read_power_off_percentage()} %")
 
         print('')
         print('')
