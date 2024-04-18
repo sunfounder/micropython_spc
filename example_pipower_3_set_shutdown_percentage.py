@@ -1,8 +1,11 @@
 from spc.spc import SPC
-from machine import Pin
+from machine import Pin, I2C
 import time
 
-spc = SPC(bus=0, sda=Pin(0), scl=Pin(1))
+# For the Raspberry Pi Pico, using I2C(0), pin 0 as SDA, pin 1 as SCL
+i2c = I2C(0, sda=Pin(0), scl=Pin(1))
+
+spc = SPC(i2c)
 
 print(f"Board name: {spc.device.name}")
 print(f"Firmware Version: {spc.read_firmware_version()}")

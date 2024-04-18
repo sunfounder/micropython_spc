@@ -63,11 +63,8 @@ class SPC():
     REG_WRITE_SHUTDOWN_PERCENTAGE = 9
     REG_WRITE_POWER_OFF_PERCENTAGE = 10
 
-    def __init__(self, bus=None, sda=None, scl=None):
-        self.bus = bus
-        self.sda = sda
-        self.scl = scl
-        self.i2c = I2C(bus=bus, sda=sda, scl=scl)
+    def __init__(self, i2c):
+        self.i2c = I2C(i2c)
 
         addresses = self.i2c.scan()
         if not addresses:
@@ -85,7 +82,7 @@ class SPC():
             raise OSError(f'SPC init error: I2C device not found at address 0x{self.addr:02X}')
         self._is_ready = True
 
-    def is_ready(self):
+    def is_ready(self) -> bool:
         return self._is_ready
 
     def read_input_voltage(self) -> int:

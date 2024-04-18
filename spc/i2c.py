@@ -1,9 +1,7 @@
-from machine import I2C as mpI2C
 
 class I2C():
-    def __init__(self, address=None, bus=None, sda=None, scl=None):
-        self._address = address
-        self._bus = mpI2C(bus, sda=sda, scl=scl)
+    def __init__(self, i2c):
+        self._bus = i2c
 
     def set_address(self, address):
         self._address = address
