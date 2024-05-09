@@ -20,7 +20,6 @@ def main():
         power_source = spc.read_power_source()
         print(f"Power source: {power_source} - {'Battery' if power_source == spc.BATTERY else 'External'}")
         print(f"Input plugged in: {spc.read_is_input_plugged_in()}")
-        print(f"Battery plugged in: {spc.read_is_battery_plugged_in()}")
         print(f"Charging: {spc.read_is_charging()}")
 
         print('')
@@ -37,8 +36,7 @@ def main():
             shutdown_request_str = 'Unknown'
         print(f"Shutdown request: {shutdown_request} - {shutdown_request_str}")
         print(f'Board id: {spc.read_board_id()}')
-        print(f"Always on: {spc.read_always_on()}")
-        print(f"Power source voltage: {spc.read_power_source_voltage()} mV")
+        print(f"Default on: {spc.read_default_on()}")
         print(f"Shutdown percentage: {spc.read_shutdown_percentage()} %")
         print(f"Power off percentage: {spc.read_power_off_percentage()} %")
 
