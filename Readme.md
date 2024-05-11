@@ -23,11 +23,9 @@
       - [SPC.read\_shutdown\_request() -\> bool](#spcread_shutdown_request---bool)
       - [SPC.read\_default\_on() -\> bool](#spcread_default_on---bool)
       - [SPC.read\_shutdown\_percentage() -\> int](#spcread_shutdown_percentage---int)
-      - [SPC.read\_power\_off\_percentage() -\> int](#spcread_power_off_percentage---int)
       - [SPC.read\_all() -\> dict](#spcread_all---dict)
       - [SPC.write\_fan\_power(power: int) -\> None](#spcwrite_fan_powerpower-int---none)
       - [SPC.write\_shutdown\_percentage(percentage: int) -\> None](#spcwrite_shutdown_percentagepercentage-int---none)
-      - [SPC.write\_power\_off\_percentage(percentage: int) -\> None](#spcwrite_power_off_percentagepercentage-int---none)
       - [SPC.read\_firmware\_version() -\> str](#spcread_firmware_version---str)
     - [Constants](#constants)
       - [SPC.EXTERNAL\_INPUT](#spcexternal_input)
@@ -226,15 +224,6 @@ shutdown_percentage = spc.read_shutdown_percentage()
 print(f"Shutdown percentage: {shutdown_percentage} %")
 ```
 
-#### SPC.read_power_off_percentage() -> int
-
-Read the power off percentage in %.
-
-```
-power_off_percentage = spc.read_power_off_percentage()
-print(f"Power off percentage: {power_off_percentage} %")
-```
-
 #### SPC.read_all() -> dict
 
 Read all avaliable the data.
@@ -258,14 +247,6 @@ Write the shutdown percentage in %. Range: 10-100
 
 ```
 spc.write_shutdown_percentage(10)
-```
-
-#### SPC.write_power_off_percentage(percentage: int) -> None
-
-Write the power off percentage in %. Range: 5-100
-
-```
-spc.write_power_off_percentage(5)
 ```
 
 #### SPC.read_firmware_version() -> str
