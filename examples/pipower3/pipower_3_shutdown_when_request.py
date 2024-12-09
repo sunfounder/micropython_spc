@@ -5,9 +5,10 @@ import time
 # For the Raspberry Pi Pico, using I2C(0), pin 0 as SDA, pin 1 as SCL
 i2c = I2C(0, sda=Pin(0), scl=Pin(1))
 
-spc = SPC(i2c)
 shutdown_signal = Pin(2, Pin.OUT)
 shutdown_signal.value(0)
+
+spc = SPC(i2c)
 
 
 def main():
